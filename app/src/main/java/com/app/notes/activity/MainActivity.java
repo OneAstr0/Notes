@@ -142,31 +142,33 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
     @Override
     public boolean onMenuItemClick(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.pin:
-                if (selectedNote.isPinned()) {
-                    database.mainDAO().pin(selectedNote.getID(), false);
-                    Toast.makeText(MainActivity.this, "Unpinned!", Toast.LENGTH_SHORT).show();
-                } else {
-                    database.mainDAO().pin(selectedNote.getID(), true);
-                    Toast.makeText(MainActivity.this, "Pinned!", Toast.LENGTH_SHORT).show();
-                }
+        int itemId = item.getItemId();
 
-                notes.clear();
-                notes.addAll(database.mainDAO().getAll());
-                notesListAdapter.notifyDataSetChanged();
-                return true;
+        if (itemId == R.id.pin) {
+            if (selectedNote.isPinned()) {
+                database.mainDAO().pin(selectedNote.getID(), false);
+                Toast.makeText(MainActivity.this, "Unpinned!", Toast.LENGTH_SHORT).show();
+            } else {
+                database.mainDAO().pin(selectedNote.getID(), true);
+                Toast.makeText(MainActivity.this, "Pinned!", Toast.LENGTH_SHORT).show();
+            }
 
-            case R.id.delete:
-                database.mainDAO().delete(selectedNote);
-                notes.remove(selectedNote);
-                notesListAdapter.notifyDataSetChanged();
-                Toast.makeText(MainActivity.this, "Note deleted!", Toast.LENGTH_SHORT).show();
-                return true;
+            notes.clear();
+            notes.addAll(database.mainDAO().getAll());
+            notesListAdapter.notifyDataSetChanged();
+            return true;
 
-            default:
-                return false;
+        } else if (itemId == R.id.delete) {
+            database.mainDAO().delete(selectedNote);
+            notes.remove(selectedNote);
+            notesListAdapter.notifyDataSetChanged();
+            Toast.makeText(MainActivity.this, "Note deleted!", Toast.LENGTH_SHORT).show();
+            return true;
+
+        } else {
+            return false;
         }
+
     }
 
 }
