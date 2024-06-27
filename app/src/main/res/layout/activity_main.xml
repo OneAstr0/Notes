@@ -39,6 +39,6 @@
         android:layout_alignParentBottom="true"
         android:layout_margin="24dp"
         android:src="@drawable/ic_add"
-        android:backgroundTint="@color/background"/>
+        android:backgroundTint="@color/fab"/>
 
 </RelativeLayout>
