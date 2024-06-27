@@ -3,7 +3,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="background">#636363</color>
-    <color name="fab">#3C3C3C</color>
+    <color name="background_beta">#939393</color>
     <color name="date">#242B2E</color>
 
     <color name="colorArray0">#F15555</color>

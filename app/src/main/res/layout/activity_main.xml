@@ -7,27 +7,22 @@
     android:background="@color/background"
     tools:context=".activity.MainActivity">
 
-    <Toolbar
-        android:id="@+id/toolbar"
+    <SearchView
+        android:id="@+id/searchView_home"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize">
-
-        <TextView
-            android:layout_width="?attr/actionBarSize"
-            android:layout_height="?attr/actionBarSize"
-            android:gravity="center"
-            android:text="@string/app_name"
-            android:textSize="20sp"
-            android:textColor="@color/white"
-            android:textStyle="bold"/>
-
-    </Toolbar>
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:layout_margin="16dp"
+        android:background="@color/background_beta"
+        android:queryHint="Search notes..."
+        android:iconifiedByDefault="false"
+        />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_home"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/toolbar"
+        android:layout_below="@+id/searchView_home"
         android:layout_margin="8dp"
         android:layout_marginTop="-56dp" />
 
@@ -39,6 +34,6 @@
         android:layout_alignParentBottom="true"
         android:layout_margin="24dp"
         android:src="@drawable/ic_add"
-        android:backgroundTint="@color/fab"/>
+        android:backgroundTint="@color/background_beta"/>
 
 </RelativeLayout>

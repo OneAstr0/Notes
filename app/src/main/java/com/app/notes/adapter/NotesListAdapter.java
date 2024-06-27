@@ -96,6 +96,12 @@ public class NotesListAdapter extends RecyclerView.Adapter<NotesViewHolder> {
         return colorCode.get(randomColor);
     }
 
+    public void filterList(List<Notes> filteredList) {
+        list = filteredList;
+        notifyDataSetChanged();
+    }
+
+
 }
 
 class NotesViewHolder extends RecyclerView.ViewHolder {
