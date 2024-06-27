@@ -4,4 +4,13 @@
     <color name="white">#FFFFFFFF</color>
     <color name="background">#3C3C3C</color>
     <color name="date">#242B2E</color>
+
+    <color name="colorArray0">#F15555</color>
+    <color name="colorArray1">#F1AB55</color>
+    <color name="colorArray2">#F1E955</color>
+    <color name="colorArray3">#91F155</color>
+    <color name="colorArray4">#55F1B3</color>
+    <color name="colorArray5">#5589F1</color>
+    <color name="colorArray6">#A355F1</color>
+
 </resources>

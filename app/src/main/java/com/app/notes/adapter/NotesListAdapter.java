@@ -9,14 +9,15 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
-import androidx.constraintlayout.helper.widget.Layer;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.notes.NotesClickListener;
 import com.app.notes.R;
 import com.app.notes.model.Notes;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class NotesListAdapter extends RecyclerView.Adapter<NotesViewHolder> {
 
@@ -52,12 +53,49 @@ public class NotesListAdapter extends RecyclerView.Adapter<NotesViewHolder> {
             holder.imageViewPin.setImageResource(0);
         }
 
+        int colorCode = getRandomColor();
+        holder.notesContainer.setCardBackgroundColor(holder.itemView.getResources().getColor(colorCode, null));
+
+        holder.notesContainer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onClick(list.get(holder.getAdapterPosition()));
+            }
+        });
+
+        holder.notesContainer.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                listener.onLongClick(list.get(holder.getAdapterPosition()), holder.notesContainer);
+                return true;
+            }
+        });
+
     }
 
     @Override
     public int getItemCount() {
         return list.size();
     }
+
+
+    private int getRandomColor() {
+        List<Integer> colorCode = new ArrayList<>();
+
+        colorCode.add(R.color.colorArray0);
+        colorCode.add(R.color.colorArray1);
+        colorCode.add(R.color.colorArray2);
+        colorCode.add(R.color.colorArray3);
+        colorCode.add(R.color.colorArray4);
+        colorCode.add(R.color.colorArray5);
+        colorCode.add(R.color.colorArray6);
+
+        Random random = new Random();
+
+        int randomColor = random.nextInt(colorCode.size());
+        return colorCode.get(randomColor);
+    }
+
 }
 
 class NotesViewHolder extends RecyclerView.ViewHolder {

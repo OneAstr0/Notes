@@ -6,5 +6,5 @@ import com.app.notes.model.Notes;
 
 public interface NotesClickListener {
     void onClick(Notes notes);
-    void onHold(Notes notes, CardView cardView);
+    void onLongClick(Notes notes, CardView cardView);
 }
